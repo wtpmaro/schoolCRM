@@ -1,0 +1,3 @@
+# schoolCRM
+
+Spring Boot project
