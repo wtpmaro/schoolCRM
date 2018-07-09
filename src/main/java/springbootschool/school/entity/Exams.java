@@ -1,9 +1,7 @@
 package springbootschool.school.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Exams {
@@ -11,6 +9,8 @@ public class Exams {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    private String subject;
 
     private String name;
 
@@ -20,11 +20,38 @@ public class Exams {
 
     private String description;
 
-    public Exams(String name, Double result, Double grade, String description) {
-        this.name = name;
-        this.result = result;
-        this.grade = grade;
-        this.description = description;
+    private String studentCode;
+
+    @ManyToOne
+    @JoinColumn(name = "studentList_id")
+    private StudentList studentList;
+
+    public Exams() {}
+
+    public String getStudentCode() {
+        return studentCode;
+    }
+
+    public void setStudentCode(String studentCode) {
+        this.studentCode = studentCode;
+    }
+
+    public String getSubject() {
+        return subject;
+    }
+
+    public void setSubject(String subject) {
+        this.subject = subject;
+    }
+
+
+
+    public StudentList getStudentList() {
+        return studentList;
+    }
+
+    public void setStudentList(StudentList studentList) {
+        this.studentList = studentList;
     }
 
     public Long getId() {
