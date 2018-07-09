@@ -28,6 +28,7 @@ public class Exams {
 
     public Exams() {}
 
+
     public String getStudentCode() {
         return studentCode;
     }
@@ -43,8 +44,6 @@ public class Exams {
     public void setSubject(String subject) {
         this.subject = subject;
     }
-
-
 
     public StudentList getStudentList() {
         return studentList;

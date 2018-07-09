@@ -1,10 +1,9 @@
 package springbootschool.school.entity;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class StudentList {
@@ -19,10 +18,41 @@ public class StudentList {
 
     private String groupNumber;
 
-    public StudentList(String name, String surname, String groupNumber) {
-        this.name = name;
-        this.surname = surname;
-        this.groupNumber = groupNumber;
+    @Column(unique=true)
+    private String emailAddress;
+
+    @OneToMany(mappedBy = "studentList")
+    private List<Exams> exams = new ArrayList<>();
+
+    @Column(unique=true)
+    private String studentCode;
+
+
+    public StudentList() {
+    }
+
+    public String getEmailAddress() {
+        return emailAddress;
+    }
+
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
+    }
+
+    public String getStudentCode() {
+        return studentCode;
+    }
+
+    public void setStudentCode(String studentCode) {
+        this.studentCode = studentCode;
+    }
+
+    public List<Exams> getExams() {
+        return exams;
+    }
+
+    public void setExams(List<Exams> exams) {
+        this.exams = exams;
     }
 
     public Long getId() {
