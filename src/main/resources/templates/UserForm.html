@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/user/add}" method="post">
+    <input type="hidden" name="id" th:field="${studentList.id}"/>
+    <p>
+    <label>Name:</label>
+    <input type="text" th:field="${studentList.name}" placeholder="Name"/>
+    </p>
+
+    <p>
+    <label>Surname:</label>
+    <input type="text" th:field="${studentList.surname}" placeholder="Surname"/>
+    </p>
+
+    <p>
+    <label>Group number:</label>
+    <input type="text" th:field="${studentList.groupNumber}" placeholder="Group number"/>
+    </p>
+
+    <p>
+    <label>Email address:</label>
+    <input type="email" th:field="${studentList.emailAddress}" placeholder="Email address"/>
+    </p>
+
+    <p>
+    <label>Student code:</label>
+    <input type="text" th:field="${studentList.studentCode}" placeholder="Student Code"/>
+    </p>
+
+    <p>
+    <input type="submit"/>
+    </p>
+</form>
+
+</body>
+</html>

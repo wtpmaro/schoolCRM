@@ -5,31 +5,36 @@
     <title>Title</title>
 </head>
 <body>
-<form th:action="@{/users/add}" method="post">
+<form th:action="@{/exam/add}" method="post">
+    <input type="hidden" name="id" th:field="${exams.id}"/>
+    <p>
+    <label>Subject:</label>
+    <input type="text" th:field="${exams.subject}" placeholder="Subject"/>
+    </p>
 
     <p>
     <label>Name:</label>
-    <input type="text" th:field="${studentList.name}" placeholder="Name"/>
+    <input type="text" th:field="${exams.name}" placeholder="Name"/>
     </p>
 
     <p>
-    <label>Surname:</label>
-    <input type="text" th:field="${studentList.surname}" placeholder="Surname"/>
+    <label>Result:</label>
+    <input type="number" th:field="${exams.result}" placeholder="Result"/>
     </p>
 
     <p>
-    <label>Group number:</label>
-    <input type="text" th:field="${studentList.groupNumber}" placeholder="Group number"/>
+    <label>Grade:</label>
+    <input type="number" th:field="${exams.grade}" placeholder="Grade"/>
     </p>
 
     <p>
-    <label>Email address:</label>
-    <input type="email" th:field="${studentList.emailAddress}" placeholder="Email address"/>
+    <label>Description:</label>
+    <input type="text" th:field="${exams.description}" placeholder="Description"/>
     </p>
-
     <p>
-    <label>Student code:</label>
-    <input type="text" th:field="${studentList.studentCode}" placeholder="Student Code"/>
+
+        <label>Student Code:</label>
+        <input type="text" th:field="${exams.studentCode}" placeholder="Student Code"/>
     </p>
 
     <p>
