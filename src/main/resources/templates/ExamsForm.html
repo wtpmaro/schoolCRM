@@ -37,6 +37,28 @@
         <input type="text" th:field="${exams.studentCode}" placeholder="Student Code"/>
     </p>
 
+
+    <label>Select food:</label>
+    <select th:if="${exams.studentList} == null" th:field="*{exams.studentList}">
+
+        <!--th:name="student" th:value="students"-->
+        <option value=""> -- </option>
+        <option th:each="student : ${students}"
+                th:value="${student.id}"
+                th:utext="${student.name} + '-' + ${student.surname}">
+        </option>
+    </select>
+
+    <select th:if="${exams.studentList} != null" th:field="*{exams.studentList}">
+        <option value=""> -- </option>
+        <option th:each="student : ${students}"
+                th:value="${student.id}"
+                th:utext="${student.name} + ' ' + ${student.surname}">
+        </option>
+    </select>
+
+    <!--                th:selected="(${student.id} == *{exams.studentList.id})"
+                th:readonly="(${student.id} == *{exams.studentList.id})"-->
     <p>
     <input type="submit"/>
     </p>
