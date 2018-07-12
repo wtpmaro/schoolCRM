@@ -53,6 +53,32 @@ public class ExamsController {
         return "redirect:/exam/all";
     }
 
+
+    @GetMapping("/{id}/edit")
+    public String edit(@PathVariable Long id, Model model){
+        examsRepository.findById(id).ifPresent(exams -> {
+
+            model.addAttribute("exams", exams);
+        });
+        return "ExamsForm";
+    }
+
+    @PostMapping("/{id}/edit")
+    public String edit(@ModelAttribute Exams exams, BindingResult result){
+/*        if(result.hasErrors()){
+
+            return "ExamsForm";
+        }*/
+        examsRepository.save(exams);
+        return "redirect:/exam/all";
+    }
+
+    @GetMapping("/{id}/delete")
+    public String delete(@PathVariable Long id){
+        examsRepository.deleteById(id);
+        return "redirect:/exam/all";
+    }
+
     @ModelAttribute("students")
     public List <StudentList> students(){
         return  studentListRepository.findAll();

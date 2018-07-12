@@ -27,7 +27,7 @@ public class ExamSubjectController {
     public String showAll(Model model) {
 
         model.addAttribute("exams",examSubjectRepository.findAll());
-        return "SubjectList";
+        return "ExamsSubjectList";
     }
 
     @GetMapping("/add")
@@ -39,11 +39,35 @@ public class ExamSubjectController {
 }
 
     @PostMapping("/add")
-    @ResponseBody
     public String examSubjectForm(@ModelAttribute ExamSubject exams, BindingResult result) {
 
         examSubjectRepository.save(exams);
-        return "Zapisano";
+        return "redirect:/subject/all";
+    }
+
+    @GetMapping("/{id}/edit")
+    public String edit(@PathVariable Long id, Model model){
+        examSubjectRepository.findById(id).ifPresent(exams -> {
+
+            model.addAttribute("exams", exams);
+        });
+        return "ExamsSubjectForm";
+    }
+
+    @PostMapping("/{id}/edit")
+    public String edit(@ModelAttribute ExamSubject exams, BindingResult result){
+/*        if(result.hasErrors()){
+
+            return "ExamsForm";
+        }*/
+        examSubjectRepository.save(exams);
+        return "redirect:/subject/all";
+    }
+
+    @GetMapping("/{id}/delete")
+    public String delete(@PathVariable Long id){
+        examSubjectRepository.deleteById(id);
+        return "redirect:/subject/all";
     }
 
 }

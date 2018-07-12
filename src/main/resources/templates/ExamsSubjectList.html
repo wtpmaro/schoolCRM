@@ -23,27 +23,18 @@
 <table class="table">
 <thead class="thead-dark">
 <tr>
-<th scope="col">Name</th>
-<th scope="col">Surname</th>
-<th scope="col">Group number</th>
-<th scope="col">Email Address</th>
-<th scope="col">Student Code</th>
-<th scope="col">Action</th>
+<th scope="col">Subject</th>
+<th scope="col">Active</th>
+
 </tr>
 </thead>
 <tbody>
-<tr th:each="user, iterStat : ${users}">
-<td th:text="${user.name}"></td>
-<td th:text="${user.surname}"></td>
-<td th:text="${user.groupNumber}"></td>
-<td th:text="${user.emailAddress}"></td>
-<td th:text="${user.studentCode}"></td>
+<tr th:each="exam, iterStat : ${exams}">
+<td th:text="${exam.subjectName}"></td>
 
-<td <!--th:text="${}"-->></td>
-<td <!--th:text="${}"-->></td>
 <td>
-<a th:href="@{'/user/' + ${user.id} + '/edit'}">Edit</a>
-<a th:href="@{'/user/' + ${user.id} + '/delete'}">Delete</a>
+<a th:href="@{'/subject/' + ${exam.id} + '/edit'}">Edit</a>
+<a th:href="@{'/subject/' + ${exam.id} + '/delete'}">Delete</a>
 </td>
 </tr>
 </tbody>
