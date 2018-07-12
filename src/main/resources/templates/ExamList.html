@@ -28,7 +28,6 @@
 <th scope="col">Result</th>
 <th scope="col">Grade</th>
 <th scope="col">Description</th>
-<th scope="col">Student Code</th>
 <th scope="col">User Name</th>
 
 </tr>
@@ -36,11 +35,10 @@
 <tbody>
 <tr th:each="exam, iterStat : ${exams}">
 <td th:text="${exam.name}"></td>
-<td th:text="${exam.subject}"></td>
+<td th:text="${exam.examSubject.subjectName}"></td>
 <td th:text="${exam.result}"></td>
 <td th:text="${exam.grade}"></td>
 <td th:text="${exam.description}"></td>
-<td th:text="${exam.studentCode}"></td>
 <td th:text="${exam.studentList.name} + ' ' + ${exam.studentList.surname}"></td>
  <!--   <td><select>
     <option th:each="exam : ${exam.studentList}"

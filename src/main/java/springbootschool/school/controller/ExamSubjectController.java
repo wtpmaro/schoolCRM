@@ -16,15 +16,9 @@ import java.util.List;
 
 
 @Controller
-@RequestMapping("/exam")
-public class ExamsController {
+@RequestMapping("/subject")
+public class ExamSubjectController {
 
-
-    @Autowired
-    ExamsRepository examsRepository;
-
-    @Autowired
-    StudentListRepository studentListRepository;
 
     @Autowired
     ExamSubjectRepository examSubjectRepository;
@@ -32,34 +26,24 @@ public class ExamsController {
     @GetMapping("/all")
     public String showAll(Model model) {
 
-        model.addAttribute("exams",examsRepository.findAll());
-        return "ExamList";
+        model.addAttribute("exams",examSubjectRepository.findAll());
+        return "SubjectList";
     }
 
     @GetMapping("/add")
     public String userForm(Model model) {
 
-        model.addAttribute("exams", new Exams());
+        model.addAttribute("exams", new ExamSubject());
 
-        return "ExamsForm";
+        return "ExamsSubjectForm";
 }
 
     @PostMapping("/add")
-    public String examForm(@ModelAttribute Exams exams, BindingResult result) {
-        if (result.hasErrors()) {
-        return "ExamsForm";
-        }
-        examsRepository.save(exams);
-        return "redirect:/exam/all";
+    @ResponseBody
+    public String examSubjectForm(@ModelAttribute ExamSubject exams, BindingResult result) {
+
+        examSubjectRepository.save(exams);
+        return "Zapisano";
     }
 
-    @ModelAttribute("students")
-    public List <StudentList> students(){
-        return  studentListRepository.findAll();
-    }
-
-    @ModelAttribute("subjects")
-    public List <ExamSubject> subjects(){
-        return  examSubjectRepository.findAll();
-    }
 }

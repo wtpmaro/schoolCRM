@@ -10,7 +10,9 @@ public class Exams {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String subject;
+    @ManyToOne
+    @JoinColumn(name = "subject_id")
+    private ExamSubject examSubject;
 
     private String name;
 
@@ -20,29 +22,18 @@ public class Exams {
 
     private String description;
 
-    private String studentCode;
-
     @ManyToOne
     @JoinColumn(name = "studentList_id")
     private StudentList studentList;
 
     public Exams() {}
 
-
-    public String getStudentCode() {
-        return studentCode;
+    public ExamSubject getExamSubject() {
+        return examSubject;
     }
 
-    public void setStudentCode(String studentCode) {
-        this.studentCode = studentCode;
-    }
-
-    public String getSubject() {
-        return subject;
-    }
-
-    public void setSubject(String subject) {
-        this.subject = subject;
+    public void setExamSubject(ExamSubject examSubject) {
+        this.examSubject = examSubject;
     }
 
     public StudentList getStudentList() {

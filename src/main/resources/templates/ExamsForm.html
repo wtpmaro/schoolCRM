@@ -8,9 +8,14 @@
 <form th:action="@{/exam/add}" method="post">
     <input type="hidden" name="id" th:field="${exams.id}"/>
     <p>
-    <label>Subject:</label>
-    <input type="text" th:field="${exams.subject}" placeholder="Subject"/>
-    </p>
+        <label>Select user:</label>
+        <select th:field="*{exams.examSubject}">
+            <option value=""> -- </option>
+            <option th:each="student : ${subjects}"
+                    th:value="${student.id}"
+                    th:text="${student.subjectName}">
+            </option>
+        </select>
 
     <p>
     <label>Name:</label>
@@ -31,21 +36,15 @@
     <label>Description:</label>
     <input type="text" th:field="${exams.description}" placeholder="Description"/>
     </p>
-    <p>
-
-        <label>Student Code:</label>
-        <input type="text" th:field="${exams.studentCode}" placeholder="Student Code"/>
-    </p>
 
 
-    <label>Select food:</label>
+
+    <label>Select user:</label>
     <select th:if="${exams.studentList} == null" th:field="*{exams.studentList}">
-
-        <!--th:name="student" th:value="students"-->
         <option value=""> -- </option>
         <option th:each="student : ${students}"
                 th:value="${student.id}"
-                th:utext="${student.name} + '-' + ${student.surname}">
+                th:text="${student.name} + ' ' + ${student.surname}">
         </option>
     </select>
 
@@ -53,7 +52,7 @@
         <option value=""> -- </option>
         <option th:each="student : ${students}"
                 th:value="${student.id}"
-                th:utext="${student.name} + ' ' + ${student.surname}">
+                th:text="${student.name} + ' ' + ${student.surname}">
         </option>
     </select>
 
