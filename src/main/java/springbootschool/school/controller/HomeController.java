@@ -13,11 +13,10 @@ public class HomeController {
 
         return "FOR EVERYONE";
     }
-    @GetMapping("/admin")
-    @ResponseBody
-    public String admin(){
+    @GetMapping("table1")
+    public String table1(){
 
-        return "Admin panel";
+        return "table1";
     }
 
     @GetMapping("/remove")

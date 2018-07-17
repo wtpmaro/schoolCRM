@@ -36,6 +36,12 @@ public class ExamsController {
         return "ExamList";
     }
 
+    @GetMapping("/table")
+    public String showAll1() {
+
+        return "table1";
+    }
+
     @GetMapping("/add")
     public String userForm(Model model) {
 

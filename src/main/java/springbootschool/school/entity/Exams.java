@@ -1,7 +1,6 @@
 package springbootschool.school.entity;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 
 @Entity
 public class Exams {
