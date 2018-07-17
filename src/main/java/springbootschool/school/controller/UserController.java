@@ -10,7 +10,7 @@ import springbootschool.school.repository.StudentListRepository;
 
 
 @Controller
-@RequestMapping("/user")
+@RequestMapping("user")
 public class UserController {
 
 
