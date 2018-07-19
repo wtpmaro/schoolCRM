@@ -6,13 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import springbootschool.school.entity.ExamSubject;
-import springbootschool.school.entity.Exams;
-import springbootschool.school.entity.StudentList;
 import springbootschool.school.repository.ExamSubjectRepository;
-import springbootschool.school.repository.ExamsRepository;
-import springbootschool.school.repository.StudentListRepository;
-
-import java.util.List;
 
 
 @Controller
@@ -27,7 +21,7 @@ public class ExamSubjectController {
     public String showAll(Model model) {
 
         model.addAttribute("exams",examSubjectRepository.findAll());
-        return "ExamsSubjectList";
+        return "Subject/ExamsSubjectList";
     }
 
     @GetMapping("/add")
@@ -35,7 +29,7 @@ public class ExamSubjectController {
 
         model.addAttribute("exams", new ExamSubject());
 
-        return "ExamsSubjectForm";
+        return "ExamSubjectForm";
 }
 
     @PostMapping("/add")
@@ -51,7 +45,7 @@ public class ExamSubjectController {
 
             model.addAttribute("exams", exams);
         });
-        return "ExamsSubjectForm";
+        return "ExamSubjectForm";
     }
 
     @PostMapping("/{id}/edit")

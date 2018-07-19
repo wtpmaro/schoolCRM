@@ -33,7 +33,7 @@ public class ExamsController {
     public String showAll(Model model) {
 
         model.addAttribute("exams",examsRepository.findAll());
-        return "ExamList";
+        return "Exam/ExamList";
     }
 
     @GetMapping("/add")

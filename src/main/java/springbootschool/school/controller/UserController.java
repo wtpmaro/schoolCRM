@@ -22,7 +22,7 @@ public class UserController {
     public String showAll(Model model) {
 
         model.addAttribute("users",studentListRepository.findAll());
-        return "UserList";
+        return "User/UserList";
     }
 
     @GetMapping("/add")
