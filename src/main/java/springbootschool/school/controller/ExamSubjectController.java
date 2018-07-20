@@ -29,7 +29,7 @@ public class ExamSubjectController {
 
         model.addAttribute("exams", new ExamSubject());
 
-        return "ExamSubjectForm";
+        return "FormEx1";
 }
 
     @PostMapping("/add")
@@ -45,7 +45,7 @@ public class ExamSubjectController {
 
             model.addAttribute("exams", exams);
         });
-        return "ExamSubjectForm";
+        return "FormEx1";
     }
 
     @PostMapping("/{id}/edit")

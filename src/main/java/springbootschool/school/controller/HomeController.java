@@ -11,7 +11,7 @@ public class HomeController {
     @GetMapping("form")
     public String table1(){
 
-        return "ExamSubjectForm";
+        return "FormEx1";
     }
 
 }
