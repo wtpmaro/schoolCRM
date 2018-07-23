@@ -1,41 +1,768 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Creative - Bootstrap 3 Responsive Admin Template">
+    <meta name="author" content="GeeksLabs">
+    <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
+    <link rel="shortcut icon" href="img/favicon.png">
+
+    <title>Basic Table | Creative - Bootstrap 3 Responsive Admin Template</title>
+
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet"/>
+    <!-- bootstrap theme -->
+    <link th:href="@{/css/bootstrap-theme.css}" rel="stylesheet"/>
+    <!--external css-->
+    <!-- font icon -->
+    <link th:href="@{/css/elegant-icons-style.css}" rel="stylesheet" />
+    <link th:href="@{/css/font-awesome.min.css}" rel="stylesheet" />
+    <!-- Custom styles -->
+    <link th:href="@{/css/style.css}" rel="stylesheet"/>
+    <link th:href="@{/css/style-responsive.css}" rel="stylesheet" />
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 -->
+    <!--[if lt IE 9]>
+    <script th:src="@{/js/html5shiv.js}"></script>
+    <script th:src="@{/js/respond.min.js}"></script>
+    <script th:src="@{/js/lte-ie7.js}"></script>
+    <![endif]-->
+
+    <!-- =======================================================
+      Theme Name: NiceAdmin
+      Theme URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
+      Author: BootstrapMade
+      Author URL: https://bootstrapmade.com
+    ======================================================= -->
 </head>
+
 <body>
-<form th:action="@{/user/add}" method="post">
-    <input type="hidden" name="id" th:field="${studentList.id}"/>
-    <p>
-    <label>Name:</label>
-    <input type="text" th:field="${studentList.name}" placeholder="Name"/>
-    </p>
+<!-- container section start -->
+<section id="container" class="">
+    <!--header start-->
+    <header class="header dark-bg">
+        <div class="toggle-nav">
+            <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_menu"></i></div>
+        </div>
 
-    <p>
-    <label>Surname:</label>
-    <input type="text" th:field="${studentList.surname}" placeholder="Surname"/>
-    </p>
+        <!--logo start-->
+        <a href="index.html" class="logo">Nice <span class="lite">Admin</span></a>
+        <!--logo end-->
 
-    <p>
-    <label>Group number:</label>
-    <input type="text" th:field="${studentList.groupNumber}" placeholder="Group number"/>
-    </p>
+        <div class="nav search-row" id="top_menu">
+            <!--  search form start -->
+            <ul class="nav top-menu">
+                <li>
+                    <form class="navbar-form">
+                        <input class="form-control" placeholder="Search" type="text">
+                    </form>
+                </li>
+            </ul>
+            <!--  search form end -->
+        </div>
 
-    <p>
-    <label>Email address:</label>
-    <input type="email" th:field="${studentList.emailAddress}" placeholder="Email address"/>
-    </p>
 
-    <p>
-    <label>Student code:</label>
-    <input type="text" th:field="${studentList.studentCode}" placeholder="Student Code"/>
-    </p>
+        </div>
+    </header>
+    <!--header end-->
 
-    <p>
-    <input type="submit"/>
-    </p>
-</form>
+    <!--sidebar start-->
+    <aside>
+        <div id="sidebar" class="nav-collapse ">
+            <!-- sidebar menu start-->
+            <ul class="sidebar-menu">
+                <li class="">
+                    <a class="" href="index.html">
+                        <i class="icon_house_alt"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:;" class="">
+                        <i class="icon_document_alt"></i>
+                        <span>Forms</span>
+                        <span class="menu-arrow arrow_carrot-right"></span>
+                    </a>
+                    <ul class="sub">
+                        <li><a class="" href="form_component.html">Form Elements</a></li>
+                        <li><a class="" href="form_validation.html">Form Validation</a></li>
+                    </ul>
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:;" class="">
+                        <i class="icon_desktop"></i>
+                        <span>UI Fitures</span>
+                        <span class="menu-arrow arrow_carrot-right"></span>
+                    </a>
+                    <ul class="sub">
+                        <li><a class="" href="general.html">Components</a></li>
+                        <li><a class="" href="buttons.html">Buttons</a></li>
+                        <li><a class="" href="grids.html">Grids</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="" href="widgets.html">
+                        <i class="icon_genius"></i>
+                        <span>Widgets</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="" href="chart-chartjs.html">
+                        <i class="icon_piechart"></i>
+                        <span>Charts</span>
+
+                    </a>
+
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:;" class="">
+                        <i class="icon_table"></i>
+                        <span>Tables</span>
+                        <span class="menu-arrow arrow_carrot-right"></span>
+                    </a>
+                    <ul class="sub">
+                        <li><a class="active" href="User/UserList.html">Basic Table</a></li>
+                    </ul>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:;" class="">
+                        <i class="icon_documents_alt"></i>
+                        <span>Pages</span>
+                        <span class="menu-arrow arrow_carrot-right"></span>
+                    </a>
+                    <ul class="sub">
+                        <li><a class="" href="profile.html">Profile</a></li>
+                        <li><a class="" href="login.html"><span>Login Page</span></a></li>
+                        <li><a class="" href="contact.html"><span>Contact Page</span></a></li>
+                        <li><a class="" href="blank.html">Blank Page</a></li>
+                        <li><a class="" href="404.html">404 Error</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+            <!-- sidebar menu end-->
+        </div>
+    </aside>
+
+    <!--main content start-->
+    <section id="main-content">
+      <section class="wrapper">
+        <div class="row">
+          <div class="col-lg-12">
+            <h3 class="page-header"><i class="fa fa-file-text-o"></i> Form elements</h3>
+            <ol class="breadcrumb">
+              <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
+              <li><i class="icon_document_alt"></i>Forms</li>
+              <li><i class="fa fa-file-text-o"></i>Form elements</li>
+            </ol>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <section class="panel">
+              <header class="panel-heading">
+                Form Elements
+              </header>
+
+            <section class="panel">
+              <div class="panel-body">
+                <form th:action="@{/user/add}" method="post" class="form-horizontal">
+                  <div class="form-group">
+<!--
+                    <label class="control-label col-lg-2">Control sizing</label>
+-->
+
+                      <div class="col-lg-10">
+                          <label>First name: </label>
+                          <input th:field="${studentList.name}" class="form-control m-bot15" type="text" placeholder="First name">
+
+                          <label>Surname: </label>
+                          <input th:field="${studentList.surname}" class="form-control m-bot15" type="text" placeholder="Surname">
+
+                          <label>Group name: </label>
+                          <input th:field="${studentList.groupNumber}" class="form-control m-bot15" type="text" placeholder="Group name">
+
+                          <label>City: </label>
+                          <input class="form-control m-bot15" type="text" placeholder="City">
+
+                          <label>Mobile phone number: </label>
+                          <input class="form-control m-bot15" type="text" placeholder="Mobile phone number">
+
+                          <label>Email: </label>
+                          <input th:field="${studentList.emailAddress}" class="form-control m-bot15" type="text" placeholder="Email">
+
+                          <label>Student code: </label>
+                          <input th:field="${studentList.studentCode}" class="form-control m-bot15" type="text" placeholder="Student code">
+
+                        <select class="form-control m-bot15">
+                                              <option>Option 1</option>
+                                              <option>Option 2</option>
+                                              <option>Option 3</option>
+                                          </select>
+                          <center><input class="btn btn-primary" type="submit" value="Save"></center>
+
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </section>
+    <!--        <section class="panel">
+              <div class="panel-body">
+                <form class="form-horizontal " method="get">
+                  <div class="form-group">
+                    <label class="control-label col-lg-2" for="inputSuccess">Checkboxes and radios</label>
+                    <div class="col-lg-10">
+                      <div class="checkbox">
+                        <label>
+                                                  <input type="checkbox" value="">
+                                                  Option one is this and that&mdash;be sure to include why it's great
+                                              </label>
+                      </div>
+
+                      <div class="checkbox">
+                        <label>
+                                                  <input type="checkbox" value="">
+                                                  Option one is this and that&mdash;be sure to include why it's great option one
+                                              </label>
+                      </div>
+
+                      <div class="radio">
+                        <label>
+                                                  <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                                                  Option one is this and that&mdash;be sure to include why it's great
+                                              </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                                                  <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                                                  Option two can be something else and selecting it will deselect option one
+                                              </label>
+                      </div>
+
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-lg-2" for="inputSuccess">Inline checkboxes</label>
+                    <div class="col-lg-10">
+                      <label class="checkbox-inline">
+                                              <input type="checkbox" id="inlineCheckbox1" value="option1"> 1
+                                          </label>
+                      <label class="checkbox-inline">
+                                              <input type="checkbox" id="inlineCheckbox2" value="option2"> 2
+                                          </label>
+                      <label class="checkbox-inline">
+                                              <input type="checkbox" id="inlineCheckbox3" value="option3"> 3
+                                          </label>
+
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-lg-2" for="inputSuccess">Selects</label>
+                    <div class="col-lg-10">
+                      <select class="form-control m-bot15">
+                                              <option>1</option>
+                                              <option>2</option>
+                                              <option>3</option>
+                                              <option>4</option>
+                                              <option>5</option>
+                                          </select>
+
+                      <select multiple class="form-control">
+                                              <option>1</option>
+                                              <option>2</option>
+                                              <option>3</option>
+                                              <option>4</option>
+                                              <option>5</option>
+                                          </select>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="control-label col-lg-2" for="inputSuccess">Column sizing</label>
+                    <div class="col-lg-10">
+                      <div class="row">
+                        <div class="col-lg-2">
+                          <input type="text" class="form-control" placeholder=".col-lg-2">
+                        </div>
+                        <div class="col-lg-3">
+                          <input type="text" class="form-control" placeholder=".col-lg-3">
+                        </div>
+                        <div class="col-lg-4">
+                          <input type="text" class="form-control" placeholder=".col-lg-4">
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+
+                </form>
+              </div>
+            </section>
+          </div>
+        </div>
+        &lt;!&ndash; Basic Forms & Horizontal Forms&ndash;&gt;
+
+        <div class="row">
+          <div class="col-lg-6">
+            <section class="panel">
+              <header class="panel-heading">
+                Basic Forms
+              </header>
+              <div class="panel-body">
+                <form role="form">
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputFile">File input</label>
+                    <input type="file" id="exampleInputFile">
+                    <p class="help-block">Example block-level help text here.</p>
+                  </div>
+                  <div class="checkbox">
+                    <label>
+                                          <input type="checkbox"> Check me out
+                                      </label>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+
+              </div>
+            </section>
+          </div>
+          <div class="col-lg-6">
+            <section class="panel">
+              <header class="panel-heading">
+                Horizontal Forms
+              </header>
+              <div class="panel-body">
+                <form class="form-horizontal" role="form">
+                  <div class="form-group">
+                    <label for="inputEmail1" class="col-lg-2 control-label">Email</label>
+                    <div class="col-lg-10">
+                      <input type="email" class="form-control" id="inputEmail1" placeholder="Email">
+                      <p class="help-block">Example block-level help text here.</p>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="inputPassword1" class="col-lg-2 control-label">Password</label>
+                    <div class="col-lg-10">
+                      <input type="password" class="form-control" id="inputPassword1" placeholder="Password">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-lg-offset-2 col-lg-10">
+                      <div class="checkbox">
+                        <label>
+                                                  <input type="checkbox"> Remember me
+                                              </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-lg-offset-2 col-lg-10">
+                      <button type="submit" class="btn btn-danger">Sign in</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </section>
+            <section class="panel">
+
+              <div class="panel-body">
+                <a href="#myModal" data-toggle="modal" class="btn btn-primary">
+                                  Form in Modal
+                              </a>
+                <a href="#myModal-1" data-toggle="modal" class="btn  btn-warning">
+                                  Form in Modal 2
+                              </a>
+                <a href="#myModal-2" data-toggle="modal" class="btn  btn-danger">
+                                  Form in Modal 3
+                              </a>
+
+                <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                        <h4 class="modal-title">Form Tittle</h4>
+                      </div>
+                      <div class="modal-body">
+
+                        <form role="form">
+                          <div class="form-group">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Enter email">
+                          </div>
+                          <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword3" placeholder="Password">
+                          </div>
+                          <div class="form-group">
+                            <label for="exampleInputFile">File input</label>
+                            <input type="file" id="exampleInputFile3">
+                            <p class="help-block">Example block-level help text here.</p>
+                          </div>
+                          <div class="checkbox">
+                            <label>
+                                                          <input type="checkbox"> Check me out
+                                                      </label>
+                          </div>
+                          <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal-1" class="modal fade">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                        <h4 class="modal-title">Form Tittle</h4>
+                      </div>
+                      <div class="modal-body">
+
+                        <form class="form-horizontal" role="form">
+                          <div class="form-group">
+                            <label for="inputEmail1" class="col-lg-2 control-label">Email</label>
+                            <div class="col-lg-10">
+                              <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label for="inputPassword1" class="col-lg-2 control-label">Password</label>
+                            <div class="col-lg-10">
+                              <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <div class="col-lg-offset-2 col-lg-10">
+                              <div class="checkbox">
+                                <label>
+                                                                  <input type="checkbox"> Remember me
+                                                              </label>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <div class="col-lg-offset-2 col-lg-10">
+                              <button type="submit" class="btn btn-info">Sign in</button>
+                            </div>
+                          </div>
+                        </form>
+
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+                <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal-2" class="modal fade">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                        <h4 class="modal-title">Form Tittle</h4>
+                      </div>
+                      <div class="modal-body">
+                        <form class="form-inline" role="form">
+                          <div class="form-group">
+                            <label class="sr-only" for="exampleInputEmail2">Email address</label>
+                            <input type="email" class="form-control sm-input" id="exampleInputEmail5" placeholder="Enter email">
+                          </div>
+                          <div class="form-group">
+                            <label class="sr-only" for="exampleInputPassword2">Password</label>
+                            <input type="password" class="form-control sm-input" id="exampleInputPassword5" placeholder="Password">
+                          </div>
+                          <div class="checkbox">
+                            <label>
+                                                          <input type="checkbox"> Remember me
+                                                      </label>
+                          </div>
+                          <button type="submit" class="btn btn-success">Sign in</button>
+                        </form>
+
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+        &lt;!&ndash; Inline form&ndash;&gt;
+        <div class="row">
+          <div class="col-lg-12">
+            <section class="panel">
+              <header class="panel-heading">
+                Inline form
+              </header>
+              <div class="panel-body">
+                <form class="form-inline" role="form">
+                  <div class="form-group">
+                    <label class="sr-only" for="exampleInputEmail2">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Enter email">
+                  </div>
+                  <div class="form-group">
+                    <label class="sr-only" for="exampleInputPassword2">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
+                  </div>
+                  <div class="checkbox">
+                    <label>
+                                          <input type="checkbox"> Remember me
+                                      </label>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Sign in</button>
+                </form>
+
+              </div>
+            </section>
+
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12">
+
+            <div class="row">
+              <div class="col-lg-6">
+                <section class="panel">
+                  <header class="panel-heading">
+                    Color Pickers & Date Pickers
+                  </header>
+                  <div class="panel-body">
+                    <form class="form-horizontal " action="#">
+                      &lt;!&ndash;date picker start&ndash;&gt;
+
+                      <div class="form-group">
+                        <label class="control-label col-sm-4">Default Datepicker</label>
+                        <div class="col-sm-6">
+                          <input id="dp1" type="text" value="28-10-2013" size="16" class="form-control">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-sm-4">Starts with years view</label>
+                        <div class="col-sm-6">
+
+
+                          <div class="input-append date" id="dpYears" data-date="18-06-2013" data-date-format="dd-mm-yyyy" data-date-viewmode="years">
+                            <input class="form-control" size="16" type="text" value="28-06-2013" readonly>
+                            <span class="add-on"><i class="icon-calendar"></i></span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="control-label col-sm-4"> Date Ranges</label>
+                        <div class="col-sm-6">
+                          <div class="input-prepend">
+                            <input id="reservation" type="text" class=" form-control" />
+                          </div>
+                        </div>
+                      </div>
+                      &lt;!&ndash;date picker end&ndash;&gt;
+
+                      &lt;!&ndash;color picker start&ndash;&gt;
+                      <div class="form-group">
+                        <label class="control-label col-sm-4">Default</label>
+
+                        <div class="col-sm-5">
+                          <input type="text" value="#CCCCCC" class="cp1 form-control">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-sm-4">RGBA</label>
+
+                        <div class="col-sm-5">
+                          <input type="text" data-color-format="rgba" value="rgb(255,255,255,1)" class="cp2 form-control">
+                        </div>
+                      </div>
+
+                      &lt;!&ndash;color picker end&ndash;&gt;
+
+                    </form>
+
+
+                  </div>
+                </section>
+                <section class="panel">
+                  <header class="panel-heading">
+                    Tags Input
+                  </header>
+                  <div class="panel-body">
+                    <input name="tagsinput" id="tagsinput" class="tagsinput" value="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal" />
+                  </div>
+                </section>
+              </div>
+              <div class="col-lg-6">
+                <section class="panel">
+                  <header class="panel-heading">
+                    Custom Checkbox & Radio
+                  </header>
+                  <div class="panel-body">
+                    <form action="#" method="get" accept-charset="utf-8">
+                      <div class="checkboxes">
+                        <label class="label_check" for="checkbox-01">
+                                                  <input name="sample-checkbox-01" id="checkbox-01" value="1" type="checkbox" checked /> I agree to the terms &#38; conditions.
+                                              </label>
+                        <label class="label_check" for="checkbox-02">
+                                              <input name="sample-checkbox-02" id="checkbox-02" value="1" type="checkbox" /> Please send me regular updates. </label>
+                        <label class="label_check" for="checkbox-03">
+                                              <input name="sample-checkbox-02" id="checkbox-03" value="1" type="checkbox" /> This is nice checkbox.</label>
+
+                      </div>
+                      <div class="radios">
+                        <label class="label_radio" for="radio-01">
+                                                  <input name="sample-radio" id="radio-01" value="1" type="radio" checked /> This is option A...
+                                              </label>
+                        <label class="label_radio" for="radio-02">
+                                                  <input name="sample-radio" id="radio-02" value="1" type="radio" /> and this is option B...
+                                              </label>
+                        <label class="label_radio" for="radio-03">
+                                                  <input name="sample-radio" id="radio-03" value="1" type="radio" /> or simply choose option C
+                                              </label>
+                      </div>
+                    </form>
+                  </div>
+
+                </section>
+
+                <section class="panel">
+                  <header class="panel-heading">
+                    Switch
+                  </header>
+                  <div class="panel-body">
+                    <div class="row m-bot15">
+                      <div class="col-sm-6 text-center">
+                        <input type="checkbox" checked="" data-toggle="switch" />
+                      </div>
+                      <div class="col-sm-6 text-center">
+                        <input type="checkbox" data-toggle="switch" />
+                      </div>
+                    </div>
+                    <div class="row m-bot15">
+                      <div class="col-sm-6 text-center">
+                        <div class="switch switch-square" data-on-label="<i class=' icon-ok'></i>" data-off-label="<i class='icon-remove'></i>">
+                          <input type="checkbox" />
+                        </div>
+                      </div>
+                      <div class="col-sm-6 text-center">
+                        <div class="switch switch-square" data-on-label="<i class=' icon-ok'></i>" data-off-label="<i class='icon-remove'></i>">
+                          <input type="checkbox" checked="" />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-6 text-center">
+                        <input type="checkbox" disabled data-toggle="switch" />
+                      </div>
+                      <div class="col-sm-6 text-center">
+                        <input type="checkbox" checked disabled data-toggle="switch" />
+                      </div>
+                    </div>
+                  </div>
+                </section>
+
+
+              </div>
+            </div>
+
+            <div class="row">
+              &lt;!&ndash; Bootsrep Editor &ndash;&gt;
+              <div class="col-lg-12">
+                <section class="panel">
+                  <header class="panel-heading">
+                    Bootsrep Editor
+                  </header>
+                  <div class="panel-body">
+                    <div id="editor" class="btn-toolbar" data-role="editor-toolbar" data-target="#editor"></div>
+                  </div>
+                </section>
+              </div>
+              &lt;!&ndash; CKEditor &ndash;&gt;
+              <div class="col-lg-12">
+                <section class="panel">
+                  <header class="panel-heading">
+                    CKEditor
+                  </header>
+                  <div class="panel-body">
+                    <div class="form">
+                      <form action="#" class="form-horizontal">
+                        <div class="form-group">
+                          <label class="control-label col-sm-2">CKEditor</label>
+                          <div class="col-sm-10">
+                            <textarea class="form-control ckeditor" name="editor1" rows="6"></textarea>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </div>
+        </div>-->
+        <!-- page end-->
+      </section>
+    </section>
+    <!--main content end-->
+    <div class="text-right">
+      <div class="credits">
+          <!--
+            All the links in the footer should remain intact.
+            You can delete the links only if you purchased the pro version.
+            Licensing information: https://bootstrapmade.com/license/
+            Purchase the pro version form: https://bootstrapmade.com/buy/?theme=NiceAdmin
+          -->
+          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        </div>
+    </div>
+  </section>
+  <!-- container section end -->
+  <!-- javascripts -->
+  <script th:src="@{/js/jquery.js}"></script>
+  <script th:src="@{/js/bootstrap.min.js}"></script>
+  <!-- nice scroll -->
+  <script th:src="@{/js/jquery.scrollTo.min.js}"></script>
+  <script th:src="@{/js/jquery.nicescroll.js}" type="text/javascript"></script>
+
+  <!-- jquery ui -->
+  <script th:src= "@{/js/jquery-ui-1.9.2.custom.min.js}"></script>
+
+  <!--custom checkbox & radio-->
+  <script type="text/javascript" th:src="@{/js/ga.js}"></script>
+  <!--custom switch-->
+  <script th:src="@{/js/bootstrap-switch.js}"></script>
+  <!--custom tagsinput-->
+  <script th:src="@{/js/jquery.tagsinput.js}"></script>
+
+  <!-- colorpicker -->
+
+  <!-- bootstrap-wysiwyg -->
+  <script th:src= "@{/js/jquery.hotkeys.js}"></script>
+  <script th:src="@{/js/bootstrap-wysiwyg.js}"></script>
+  <script th:src="@{/js/bootstrap-wysiwyg-custom.js}"></script>
+  <script th:src="@{/js/moment.js}"></script>
+  <script th:src="@{/js/bootstrap-colorpicker.js}"></script>
+  <script th:src="@{/js/daterangepicker.js}"></script>
+  <script th:src="@{/js/bootstrap-datepicker.js}"></script>
+  <!-- ck editor -->
+  <script type="text/javascript" th:src="@{/assets/ckeditor/ckeditor.js}" ></script>
+  <!-- custom form component script for this page-->
+  <script th:src="@{/js/form-component.js}"></script>
+  <!-- custome script for all page -->
+  <script th:src= "@{/js/scripts.js}"></script>
+
 
 </body>
+
 </html>

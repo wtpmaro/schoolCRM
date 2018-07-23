@@ -15,7 +15,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public	class SecurityConfig extends	WebSecurityConfigurerAdapter	{
 
     @Autowired
-    private PasswordEncoder passwordEncoder; // Spring 2.x requires passwords to be hashed
+    private PasswordEncoder passwordEncoder;
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -39,7 +39,7 @@ public	class SecurityConfig extends	WebSecurityConfigurerAdapter	{
         http.authorizeRequests()
                 .antMatchers("/login", "/all").anonymous()
                 .antMatchers("/content", "/logout", "/restricted").authenticated()
-                .antMatchers("/admin").hasRole("ADMIN")
+                .antMatchers("/exam/**").hasRole("ADMIN")
                 .antMatchers("/remove").hasRole("ADMIN")
                 .antMatchers("/update").hasRole("USER")
                 .antMatchers("/").permitAll()
