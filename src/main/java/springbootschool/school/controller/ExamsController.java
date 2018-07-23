@@ -41,13 +41,13 @@ public class ExamsController {
 
         model.addAttribute("exams", new Exams());
 
-        return "ExamsForm";
+        return "Exam/ExamForm";
 }
 
     @PostMapping("/add")
     public String examForm(@ModelAttribute Exams exams, BindingResult result) {
         if (result.hasErrors()) {
-        return "ExamsForm";
+        return "Exam/ExamForm";
         }
         examsRepository.save(exams);
         return "redirect:/exam/all";
@@ -60,7 +60,7 @@ public class ExamsController {
 
             model.addAttribute("exams", exams);
         });
-        return "ExamsForm";
+        return "Exam/ExamForm";
     }
 
     @PostMapping("/{id}/edit")

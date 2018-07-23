@@ -29,7 +29,7 @@ public class UserController {
     public String userForm(Model model) {
 
         model.addAttribute("studentList", new StudentList());
-        return "UserForm";
+        return "User/UserForm";
 }
 
     @PostMapping("/add")
@@ -44,7 +44,7 @@ public class UserController {
 
             model.addAttribute("studentList", studentList);
         });
-        return "UserForm";
+        return "User/UserForm";
     }
 
     @PostMapping("/{id}/edit")

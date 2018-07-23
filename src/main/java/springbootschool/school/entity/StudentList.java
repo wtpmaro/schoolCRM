@@ -24,11 +24,31 @@ public class StudentList {
     @OneToMany(mappedBy = "studentList")
     private List<Exams> exams = new ArrayList<>();
 
+    private String cityName;
+
+    private int mobilePhone;
+
     @Column(unique=true)
     private String studentCode;
 
 
     public StudentList() {
+    }
+
+    public String getCityName() {
+        return cityName;
+    }
+
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
+    }
+
+    public int getMobilePhone() {
+        return mobilePhone;
+    }
+
+    public void setMobilePhone(int mobilePhone) {
+        this.mobilePhone = mobilePhone;
     }
 
     public String getEmailAddress() {

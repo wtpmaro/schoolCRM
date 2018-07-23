@@ -124,7 +124,7 @@
                         <span class="menu-arrow arrow_carrot-right"></span>
                     </a>
                     <ul class="sub">
-                        <li><a class="active" href="User/UserList.html">Basic Table</a></li>
+                        <li><a class="active" href="../User/UserList.html">Basic Table</a></li>
                     </ul>
                 </li>
 
@@ -170,39 +170,58 @@
 
             <section class="panel">
               <div class="panel-body">
-                <form th:action="@{/user/add}" method="post" class="form-horizontal">
+                <form th:action="@{/exam/add}" method="post" class="form-horizontal">
                   <div class="form-group">
 <!--
                     <label class="control-label col-lg-2">Control sizing</label>
 -->
 
                       <div class="col-lg-10">
-                          <label>First name: </label>
-                          <input th:field="${studentList.name}" class="form-control m-bot15" type="text" placeholder="First name">
+                          <input th:field="${exams.id}" class="form-control m-bot15" type="hidden" name="id">
 
-                          <label>Surname: </label>
-                          <input th:field="${studentList.surname}" class="form-control m-bot15" type="text" placeholder="Surname">
 
-                          <label>Group name: </label>
-                          <input th:field="${studentList.groupNumber}" class="form-control m-bot15" type="text" placeholder="Group name">
+                          <label>Select subject: </label>
+                          <select th:field="*{exams.examSubject}" class="form-control m-bot15">
+                              <option value=""> -- </option>
+                              <option th:each="student : ${subjects}"
+                                      th:value="${student.id}"
+                                      th:text="${student.subjectName}">
+                              </option>
+                          </select>
+
+                          <label>Subject name: </label>
+                          <input th:field="${exams.name}" class="form-control m-bot15" type="text" placeholder="Subject name">
+
+                          <label>Result(points): </label>
+                          <input th:field="${exams.result}" class="form-control m-bot15" type="text" placeholder="Result(points)">
 
                           <label>City: </label>
                           <input class="form-control m-bot15" type="text" placeholder="City">
 
-                          <label>Mobile phone number: </label>
-                          <input class="form-control m-bot15" type="text" placeholder="Mobile phone number">
+                          <label>Grade: </label>
+                          <input class="form-control m-bot15" type="number" th:field="${exams.grade}" placeholder="Grade">
 
-                          <label>Email: </label>
-                          <input th:field="${studentList.emailAddress}" class="form-control m-bot15" type="text" placeholder="Email">
+                          <label>Description: </label>
+                          <input th:field="${exams.description}" class="form-control m-bot15" type="text" placeholder="Email">
 
-                          <label>Student code: </label>
-                          <input th:field="${studentList.studentCode}" class="form-control m-bot15" type="text" placeholder="Student code">
+                          <label>Student user: </label>
 
-                        <select class="form-control m-bot15">
-                                              <option>Option 1</option>
-                                              <option>Option 2</option>
-                                              <option>Option 3</option>
-                                          </select>
+                          <select class="form-control m-bot15" th:if="${exams.studentList} == null" th:field="*{exams.studentList}">
+                              <option value=""> -- </option>
+                              <option th:each="student : ${students}"
+                                      th:value="${student.id}"
+                                      th:text="${student.name} + ' ' + ${student.surname}">
+                              </option>
+                          </select>
+
+                          <select class="form-control m-bot15" th:if="${exams.studentList} != null" th:field="*{exams.studentList}">
+                              <option value=""> -- </option>
+                              <option th:each="student : ${students}"
+                                      th:value="${student.id}"
+                                      th:text="${student.name} + ' ' + ${student.surname}">
+                              </option>
+                          </select>
+
                           <center><input class="btn btn-primary" type="submit" value="Save"></center>
 
                     </div>
