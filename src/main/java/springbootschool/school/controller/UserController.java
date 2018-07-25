@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.*;
 import springbootschool.school.entity.StudentList;
 import springbootschool.school.repository.StudentListRepository;
 
+import javax.validation.Valid;
+
 
 @Controller
 @RequestMapping("user")
@@ -33,7 +35,10 @@ public class UserController {
 }
 
     @PostMapping("/add")
-    public String userForm(@ModelAttribute StudentList studentList) {
+    public String userForm(@Valid StudentList studentList, BindingResult result) {
+        if(result.hasErrors()){
+            return "User/UserForm";
+        }
             studentListRepository.save(studentList);
         return "redirect:/user/all";
     }
@@ -48,11 +53,10 @@ public class UserController {
     }
 
     @PostMapping("/{id}/edit")
-    public String edit(@ModelAttribute StudentList studentList, BindingResult result){
-/*        if(result.hasErrors()){
-
-            return "ExamsForm";
-        }*/
+    public String edit(@Valid StudentList studentList, BindingResult result){
+        if(result.hasErrors()){
+            return "User/UserForm";
+        }
         studentListRepository.save(studentList);
         return "redirect:/user/all";
     }

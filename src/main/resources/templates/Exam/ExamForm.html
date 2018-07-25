@@ -181,6 +181,7 @@
 
 
                           <label>Select subject: </label>
+                          <p th:errors="*{exams.examSubject}"></p>
                           <select th:field="*{exams.examSubject}" class="form-control m-bot15">
                               <option value=""> -- </option>
                               <option th:each="student : ${subjects}"
@@ -190,22 +191,23 @@
                           </select>
 
                           <label>Subject name: </label>
+                          <p th:errors="*{exams.name}"></p>
                           <input th:field="${exams.name}" class="form-control m-bot15" type="text" placeholder="Subject name">
 
                           <label>Result(points): </label>
-                          <input th:field="${exams.result}" class="form-control m-bot15" type="text" placeholder="Result(points)">
-
-                          <label>City: </label>
-                          <input class="form-control m-bot15" type="text" placeholder="City">
+                          <p th:errors="*{exams.result}"></p>
+                          <input th:field="${exams.result}" class="form-control m-bot15" type="number" placeholder="Result(points)">
 
                           <label>Grade: </label>
-                          <input class="form-control m-bot15" type="number" th:field="${exams.grade}" placeholder="Grade">
+                          <p th:errors="*{exams.grade}"></p>
+                          <input class="form-control m-bot15" type="number" th:field="${exams.grade}" placeholder="Grade" min="1" max="6">
 
                           <label>Description: </label>
+                          <p th:errors="*{exams.description}"></p>
                           <input th:field="${exams.description}" class="form-control m-bot15" type="text" placeholder="Email">
 
                           <label>Student user: </label>
-
+                          <p th:errors="*{exams.studentList}"></p>
                           <select class="form-control m-bot15" th:if="${exams.studentList} == null" th:field="*{exams.studentList}">
                               <option value=""> -- </option>
                               <option th:each="student : ${students}"

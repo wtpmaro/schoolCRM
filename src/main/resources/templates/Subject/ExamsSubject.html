@@ -172,9 +172,10 @@
               <div class="panel-body">
                 <form th:action="@{/subject/add}" method="post" class="form-inline" role="form">
                   <div class="form-group">
+                      <p th:errors="*{exams.examSubject}"></p>
                     <label class="sr-only" for="exampleInputEmail2">Subject form</label>
                     <input type="hidden" name="id" th:field="${exams.id}"/>
-                    <input th:field="${exams.subjectName}" type="text" class="form-control" id="exampleInputEmail2" placeholder="Subject">
+                    <input th:field="${exams.subjectName}" type="text" class="form-control" id="exampleInputEmail2" placeholder="Subject"/>
                   </div>
 
                   <button type="submit" class="btn btn-primary">Save</button>

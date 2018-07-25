@@ -12,6 +12,7 @@ import springbootschool.school.repository.ExamSubjectRepository;
 import springbootschool.school.repository.ExamsRepository;
 import springbootschool.school.repository.StudentListRepository;
 
+import javax.validation.Valid;
 import java.util.List;
 
 
@@ -45,7 +46,7 @@ public class ExamsController {
 }
 
     @PostMapping("/add")
-    public String examForm(@ModelAttribute Exams exams, BindingResult result) {
+    public String examForm(@Valid Exams exams, BindingResult result) {
         if (result.hasErrors()) {
         return "Exam/ExamForm";
         }
@@ -64,11 +65,11 @@ public class ExamsController {
     }
 
     @PostMapping("/{id}/edit")
-    public String edit(@ModelAttribute Exams exams, BindingResult result){
-/*        if(result.hasErrors()){
+    public String edit(@Valid Exams exams, BindingResult result){
+       if(result.hasErrors()){
 
-            return "ExamsForm";
-        }*/
+            return "Exam/ExamForm";
+        }
         examsRepository.save(exams);
         return "redirect:/exam/all";
     }

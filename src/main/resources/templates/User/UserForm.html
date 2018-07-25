@@ -180,24 +180,31 @@
                           <input type="hidden" name="id" th:field="${studentList.id}"/>
 
                           <label>First name: </label>
+                          <p th:errors="*{studentList.name}"></p>
                           <input th:field="${studentList.name}" class="form-control m-bot15" type="text" placeholder="First name">
 
                           <label>Surname: </label>
+                          <p th:errors="*{studentList.surname}"></p>
                           <input th:field="${studentList.surname}" class="form-control m-bot15" type="text" placeholder="Surname">
 
                           <label>Group name: </label>
+                          <p th:errors="*{studentList.groupNumber}"></p>
                           <input th:field="${studentList.groupNumber}" class="form-control m-bot15" type="text" placeholder="Group name">
 
                           <label>City: </label>
+                          <p th:errors="*{studentList.cityName}"></p>
                           <input th:field="${studentList.cityName}" class="form-control m-bot15" type="text" placeholder="City">
 
                           <label>Mobile phone number: </label>
+                          <p th:errors="*{studentList.mobilePhone}"></p>
                           <input th:field="${studentList.mobilePhone}" class="form-control m-bot15" type="text" placeholder="Mobile phone number">
 
                           <label>Email: </label>
+                          <p th:errors="*{studentList.emailAddress}"></p>
                           <input th:field="${studentList.emailAddress}" class="form-control m-bot15" type="text" placeholder="Email">
 
                           <label>Student code: </label>
+                          <p th:errors="*{studentList.studentCode}"></p>
                           <input th:field="${studentList.studentCode}" class="form-control m-bot15" type="text" placeholder="Student code">
 
 

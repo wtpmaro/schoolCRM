@@ -1,6 +1,7 @@
 package springbootschool.school.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 
 @Entity
 public class Exams {
@@ -10,18 +11,28 @@ public class Exams {
     private Long id;
 
     @ManyToOne
+    @NotNull
     @JoinColumn(name = "subject_id")
     private ExamSubject examSubject;
 
+    @NotEmpty
     private String name;
 
+    @NotNull
+    @Min(0)
     private Double result;
 
+    @NotNull
+    @Min(1)
+    @Max(6)
     private Double grade;
 
+    @NotEmpty
+    @Size(min = 3, max = 256)
     private String description;
 
     @ManyToOne
+    @NotNull
     @JoinColumn(name = "studentList_id")
     private StudentList studentList;
 

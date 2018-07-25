@@ -2,6 +2,9 @@ package springbootschool.school.entity;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,23 +15,30 @@ public class StudentList {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotEmpty
     private String name;
 
+    @NotEmpty
     private String surname;
 
+    @NotEmpty
     private String groupNumber;
 
     @Column(unique=true)
+    @Email
     private String emailAddress;
 
     @OneToMany(mappedBy = "studentList")
     private List<Exams> exams = new ArrayList<>();
 
+    @NotEmpty
     private String cityName;
+
 
     private int mobilePhone;
 
     @Column(unique=true)
+    @NotEmpty
     private String studentCode;
 
 

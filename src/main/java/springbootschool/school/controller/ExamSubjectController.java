@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.*;
 import springbootschool.school.entity.ExamSubject;
 import springbootschool.school.repository.ExamSubjectRepository;
 
+import javax.validation.Valid;
+
 
 @Controller
 @RequestMapping("/subject")
@@ -27,14 +29,18 @@ public class ExamSubjectController {
     @GetMapping("/add")
     public String userForm(Model model) {
 
+
         model.addAttribute("exams", new ExamSubject());
 
         return "Subject/ExamsSubject";
 }
 
     @PostMapping("/add")
-    public String examSubjectForm(@ModelAttribute ExamSubject exams, BindingResult result) {
+    public String examSubjectForm(@Valid ExamSubject exams, BindingResult result) {
 
+        if (result.hasErrors()) {
+            return "Subject/ExamsSubject";
+        }
         examSubjectRepository.save(exams);
         return "redirect:/subject/all";
     }
@@ -49,11 +55,10 @@ public class ExamSubjectController {
     }
 
     @PostMapping("/{id}/edit")
-    public String edit(@ModelAttribute ExamSubject exams, BindingResult result){
-/*        if(result.hasErrors()){
-
-            return "ExamsForm";
-        }*/
+    public String edit(@Valid ExamSubject exams, BindingResult result){
+             if(result.hasErrors()){
+            return "Subject/ExamsSubject";
+        }
         examSubjectRepository.save(exams);
         return "redirect:/subject/all";
     }
