@@ -4,7 +4,6 @@ package springbootschool.school.entity;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,13 +27,13 @@ public class StudentList {
     @Email
     private String emailAddress;
 
-    @OneToMany(mappedBy = "studentList")
+    @OneToMany(mappedBy = "studentList", fetch = FetchType.EAGER)
     private List<Exams> exams = new ArrayList<>();
 
     @NotEmpty
     private String cityName;
 
-
+    @NotEmpty
     private int mobilePhone;
 
     @Column(unique=true)

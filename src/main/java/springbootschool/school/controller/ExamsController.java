@@ -80,6 +80,7 @@ public class ExamsController {
         return "redirect:/exam/all";
     }
 
+
     @ModelAttribute("students")
     public List <StudentList> students(){
         return  studentListRepository.findAll();

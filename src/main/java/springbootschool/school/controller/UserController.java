@@ -7,6 +7,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import springbootschool.school.entity.StudentList;
 import springbootschool.school.repository.StudentListRepository;
+import springbootschool.school.service.SearchOptions;
 
 import javax.validation.Valid;
 
@@ -19,6 +20,8 @@ public class UserController {
     @Autowired
     StudentListRepository studentListRepository;
 
+    @Autowired
+    SearchOptions searchOptions;
 
     @GetMapping("/all")
     public String showAll(Model model) {
@@ -59,6 +62,12 @@ public class UserController {
         }
         studentListRepository.save(studentList);
         return "redirect:/user/all";
+    }
+    @PostMapping("/search")
+    public String search(Model model, @RequestParam String criteria, int value) {
+
+        model.addAttribute("users",searchOptions.searchUser(value, criteria));
+        return "User/UserList";
     }
 
     @GetMapping("/{id}/delete")
