@@ -63,6 +63,13 @@ public class ExamSubjectController {
         return "redirect:/subject/all";
     }
 
+    @PostMapping("/search")
+    @ResponseBody
+    public String search(Model model, @RequestParam String criteria) {
+
+        return "User/UserList";
+    }
+
     @GetMapping("/{id}/delete")
     public String delete(@PathVariable Long id){
         examSubjectRepository.deleteById(id);

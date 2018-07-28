@@ -9,7 +9,7 @@ public interface StudentListRepository extends JpaRepository <StudentList, Long>
 
     List<StudentList>  findAllByCityNameLikeOrderBySurname(String cityName);
     List<StudentList> findAllByNameLikeAndSurnameLike(String name, String surname);
-    List<StudentList> findAllByEmailAddressLikeOrderBySurnameAscNameAsc(String emailAddress);
+    List<StudentList> findAllByEmailAddressContainingOrderBySurnameAscNameAsc(String emailAddress);
     List<StudentList> findAllByStudentCodeLikeOrderBySurnameAscNameAsc(String studentCode);
     List<StudentList> findAllByMobilePhoneLikeOrderBySurnameAscNameAsc(int mobilePhone);
 

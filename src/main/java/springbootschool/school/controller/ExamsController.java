@@ -80,6 +80,13 @@ public class ExamsController {
         return "redirect:/exam/all";
     }
 
+    @PostMapping("/search")
+    @ResponseBody
+    public String search(Model model, @RequestParam String criteria, int value) {
+
+        return "User/UserList";
+    }
+
 
     @ModelAttribute("students")
     public List <StudentList> students(){

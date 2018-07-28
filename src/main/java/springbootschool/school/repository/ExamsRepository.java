@@ -11,6 +11,7 @@ public interface ExamsRepository extends JpaRepository <Exams, Long>{
 
     @Query("Select e from Exams e join e.studentList p Where p.name= :studentName")
     List<Exams> findAllByPublisher(@Param("studentName") String studentName);
+
 }
 
 

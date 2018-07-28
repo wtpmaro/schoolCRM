@@ -2,6 +2,7 @@ package springbootschool.school.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import springbootschool.school.entity.Exams;
 import springbootschool.school.entity.StudentList;
 import springbootschool.school.repository.StudentListRepository;
 
@@ -26,7 +27,7 @@ public class SearchOptions {
                 return studentListRepository.findAllByNameLikeAndSurnameLike(firstName, surName);
 
             case 3:
-                return studentListRepository.findAllByEmailAddressLikeOrderBySurnameAscNameAsc(criteria);
+                return studentListRepository.findAllByEmailAddressContainingOrderBySurnameAscNameAsc(criteria);
 
             case 4:
                 return studentListRepository.findAllByMobilePhoneLikeOrderBySurnameAscNameAsc(Integer.parseInt(criteria));
@@ -37,6 +38,11 @@ public class SearchOptions {
                 return studentListRepository.findAll();
         }
 
+    }
+
+    public  List<Exams> searchExam (int value, String criteria) {
+
+        return null;
     }
 }
 

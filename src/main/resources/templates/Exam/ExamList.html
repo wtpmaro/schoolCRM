@@ -169,6 +169,21 @@
           <div class="col-lg-12">
             <section class="panel">
               <header class="panel-heading">
+                <form th:action="@{/exam/search}" method="post">
+                  <p>
+                    <select name="value">
+                      <option value="0"> -- </option>
+                      <option value="1">Full name</option>
+                      <option value="2">Exam Signature</option>
+                      <option value="3">Subject name</option>
+                      <option value="4">Group name</option>
+                      <option value="5">Grade</option>
+
+                    </select>
+                    <input type="text" placeholder="Subject" name="criteria"/>
+
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </form></p>
                 <p><a href="/exam/add" class="btn btn-success">Add to list</a></p>
               </header>
 
