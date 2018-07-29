@@ -11,6 +11,7 @@ import springbootschool.school.entity.StudentList;
 import springbootschool.school.repository.ExamSubjectRepository;
 import springbootschool.school.repository.ExamsRepository;
 import springbootschool.school.repository.StudentListRepository;
+import springbootschool.school.service.SearchOptions;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -29,6 +30,9 @@ public class ExamsController {
 
     @Autowired
     ExamSubjectRepository examSubjectRepository;
+
+    @Autowired
+    SearchOptions searchOptions;
 
     @GetMapping("/all")
     public String showAll(Model model) {
@@ -81,10 +85,10 @@ public class ExamsController {
     }
 
     @PostMapping("/search")
-    @ResponseBody
     public String search(Model model, @RequestParam String criteria, int value) {
 
-        return "User/UserList";
+        model.addAttribute("exams",searchOptions.searchExam(value, criteria));
+        return "Exam/ExamList";
     }
 
 

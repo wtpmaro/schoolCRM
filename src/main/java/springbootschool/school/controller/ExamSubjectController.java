@@ -64,10 +64,9 @@ public class ExamSubjectController {
     }
 
     @PostMapping("/search")
-    @ResponseBody
     public String search(Model model, @RequestParam String criteria) {
-
-        return "User/UserList";
+        model.addAttribute("exams",examSubjectRepository.findAllBySubjectNameContaining(criteria));
+        return "Subject/ExamsSubjectList";
     }
 
     @GetMapping("/{id}/delete")

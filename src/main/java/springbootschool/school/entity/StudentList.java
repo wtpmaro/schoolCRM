@@ -4,6 +4,7 @@ package springbootschool.school.entity;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,7 +34,7 @@ public class StudentList {
     @NotEmpty
     private String cityName;
 
-    @NotEmpty
+    @NotNull
     private int mobilePhone;
 
     @Column(unique=true)
