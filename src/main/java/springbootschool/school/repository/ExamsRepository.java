@@ -32,7 +32,7 @@ public interface ExamsRepository extends JpaRepository <Exams, Long>{
 
     List<Exams> findAllByGradeEquals(Double grade);
 
-
+    List<Exams> findAllByStudentList(StudentList studentList);
 
 }
 

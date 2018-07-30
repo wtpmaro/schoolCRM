@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import springbootschool.school.entity.StudentList;
+import springbootschool.school.repository.ExamsRepository;
 import springbootschool.school.repository.StudentListRepository;
 import springbootschool.school.service.SearchOptions;
 
@@ -22,6 +23,9 @@ public class UserController {
 
     @Autowired
     SearchOptions searchOptions;
+
+    @Autowired
+    ExamsRepository examsRepository;
 
     @GetMapping("/all")
     public String showAll(Model model) {
@@ -69,6 +73,17 @@ public class UserController {
         model.addAttribute("users",searchOptions.searchUser(value, criteria));
         return "User/UserList";
     }
+
+    @GetMapping("/{id}/details")
+    public String details(@PathVariable Long id, Model model){
+        studentListRepository.findById(id).ifPresent(studentList -> {
+            model.addAttribute("studentList", studentList);
+            model.addAttribute("exams",examsRepository.findAllByStudentList(studentList));
+
+        });
+        return "Exam/ExamList";
+    }
+
 
     @GetMapping("/{id}/delete")
     public String delete(@PathVariable Long id){

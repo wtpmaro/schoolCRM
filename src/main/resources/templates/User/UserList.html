@@ -207,6 +207,7 @@
                   <td th:text="${user.studentCode}"></td>
                   <td>
                     <div class="btn-group">
+                      <a class="btn btn-success" th:href="@{'/user/' + ${user.id} + '/details'}"><i class="icon_plus_alt2"></i>Details</a>
                       <a class="btn btn-primary" th:href="@{'/user/' + ${user.id} + '/edit'}"><i class="icon_plus_alt2"></i>Edit</a>
                       <a class="btn btn-danger" th:href="@{'/user/' + ${user.id} + '/delete'}"><i class="icon_close_alt2"></i>Delete</a>
                     </div>
